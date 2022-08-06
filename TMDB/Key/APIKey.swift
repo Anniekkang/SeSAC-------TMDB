@@ -8,11 +8,12 @@
 import UIKit
 
 struct APIKey {
-    static let Movie = "39482b595731de46e04badd8ab070e10"
+    static let APIMovie = "39482b595731de46e04badd8ab070e10"
     
 }
 
 struct Endpoint {
-    static let movieURL = "https://api.themoviedb.org/3/trending/all/day?api_key="
-    
+    static let movieURL = "https://api.themoviedb.org/3/trending/movie/week?api_key="
+    static let genreURL = "https://api.themoviedb.org/3/genre/movie/list?api_key=\(APIKey.APIMovie)&language=en-US"
+  
 }
