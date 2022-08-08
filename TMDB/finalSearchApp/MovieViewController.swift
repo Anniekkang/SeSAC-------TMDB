@@ -34,7 +34,9 @@ class MovieViewController : UIViewController {
         
         movieCollectionView.register(UINib(nibName: MovieCollectionViewCell.reuseblaIdentifier, bundle: nil), forCellWithReuseIdentifier: MovieCollectionViewCell.reuseblaIdentifier)
         
-       
+        fatchMovie()
+        designNavibar()
+        collectionViewLayout()
     }
     
     
@@ -70,6 +72,7 @@ class MovieViewController : UIViewController {
                // let list = json["item"].arrayValue.map { $0["link"].stringValue  }
 
                 for item in json["results"] {
+                    
                     let poster_path = item.1["poster_path"].stringValue
                     let release_date = item.1["release_date"].stringValue
                     let overview = item.1["overview"].stringValue
@@ -123,8 +126,8 @@ extension MovieViewController : UICollectionViewDelegate, UICollectionViewDataSo
         cell.dateLabel.text = movieList[indexPath.item].date
     
         
-       let imageURL = URL(string: "https://api.themoviedb.org/3/movie/{\(movieList[indexPath.item].id)}/images?api_key=\(APIKey.APIMovie)&language=en-US")
-        
+        let imageURL = URL(string: Endpoint.imageURL + movieList[indexPath.item].image
+        )
 
         cell.posterImageView.kf.setImage(with: imageURL)
         cell.titleLabel.text = movieList[indexPath.item].title
@@ -138,9 +141,13 @@ extension MovieViewController : UICollectionViewDelegate, UICollectionViewDataSo
         
   
         print(movieList[indexPath.item].title)
-        cell.backgroundColor = .darkGray
         
- 
+        cell.dateLabel.backgroundColor = .white
+        cell.genreLabel.backgroundColor = .white
+        cell.posterImageView.layer.cornerRadius = 10
+        cell.layer.shadowColor = UIColor.darkGray.cgColor
+        cell.layer.opacity = 0.5
+        cell.layer.shadowRadius = 15
         
         return cell
         
@@ -155,7 +162,7 @@ extension MovieViewController {
         
         let layout = UICollectionViewFlowLayout()
         
-        let spacing: CGFloat = 25
+        let spacing: CGFloat = 60
         
         let width = UIScreen.main.bounds.width - (spacing * 2)
         
@@ -169,6 +176,7 @@ extension MovieViewController {
         layout.minimumInteritemSpacing = spacing * 3
         
         movieCollectionView.collectionViewLayout = layout
+        
     }
     
 }
