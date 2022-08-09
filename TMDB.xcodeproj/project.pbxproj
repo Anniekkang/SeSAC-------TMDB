@@ -86,6 +86,7 @@
 		9E3211EA2899F6B9008D11FE = {
 			isa = PBXGroup;
 			children = (
+				9E985E6928A230AA007140DB /* Netflix */,
 				9E32120A2899F7D3008D11FE /* .gitignore */,
 				9E3211F52899F6BA008D11FE /* TMDB */,
 				9E3211F42899F6BA008D11FE /* Products */,
@@ -134,6 +135,13 @@
 				9E3212162899FABC008D11FE /* Example2.swift */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		9E985E6928A230AA007140DB /* Netflix */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Netflix;
 			sourceTree = "<group>";
 		};
 		9EAFEE3828A0DDC00045480A /* Network */ = {
