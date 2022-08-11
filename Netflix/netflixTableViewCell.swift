@@ -15,8 +15,7 @@ class netflixTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    
-    
+   
     override func awakeFromNib() {
         super.awakeFromNib()
      
@@ -27,11 +26,13 @@ class netflixTableViewCell: UITableViewCell {
 
     func setUp(){
         
-        
+      
+       
+       
         titleLabel.font = .boldSystemFont(ofSize: 20)
         titleLabel.textColor = .white
         titleLabel.backgroundColor = .clear
-      
+        
         collectionView.collectionViewLayout = collectionViewLayout()
 
         

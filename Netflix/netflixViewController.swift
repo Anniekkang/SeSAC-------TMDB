@@ -7,9 +7,16 @@
 
 import UIKit
 
+import Kingfisher
+
 class netflixViewController: UIViewController {
 
+   
+   
+  
     
+    var titleList : [String] = []
+    var recommendList : [[String]] = []
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,16 +27,20 @@ class netflixViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     
-        netflixAPIManager.shared.dictionaryRequest()
+        netflixAPIManager.shared.recommendRequest { value in
+            self.recommendList = value
+            
+        } completionHandler2: { value in
+            self.titleList = value
+            dump(value)
+        }
+            self.tableView.reloadData()
+        }
+
         
         
     }
-    
 
-    
-    
-    
-}
 
 extension netflixViewController : UICollectionViewDelegate,UICollectionViewDataSource {
     
@@ -37,7 +48,7 @@ extension netflixViewController : UICollectionViewDelegate,UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         
-        return 5
+        return recommendList[collectionView.tag].count
     }
     
     
@@ -46,6 +57,10 @@ extension netflixViewController : UICollectionViewDelegate,UICollectionViewDataS
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "netflixCollectionViewCell", for: indexPath) as? netflixCollectionViewCell else { return UICollectionViewCell()}
         
+      
+        let url = URL(string:"https://image.tmdb.org/t/p/w500 + \(netflixAPIManager.shared.imagePath[indexPath.section][indexPath.row])")
+        
+        cell.netflixUIView.posterImageView.kf.setImage(with: url)
         
         
         return cell
@@ -75,9 +90,12 @@ extension netflixViewController : UICollectionViewDelegate,UICollectionViewDataS
 
 extension netflixViewController : UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        1
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       
-        return 1
+        return titleList.count
         
     }
     
@@ -86,16 +104,15 @@ extension netflixViewController : UITableViewDelegate, UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "netflixTableViewCell", for: indexPath) as? netflixTableViewCell else { return UITableViewCell() }
         
-        
-        
-     
+    
+      
         cell.collectionView.delegate = self
         cell.collectionView.dataSource = self
-        cell.collectionView.backgroundColor = .yellow
+        cell.collectionView.backgroundColor = .black
         cell.backgroundColor = .black
         cell.collectionView.register(UINib(nibName: "netflixCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "netflixCollectionViewCell")
-        
-        
+        cell.collectionView.tag = indexPath.section
+        cell.titleLabel.text = titleList[indexPath.section]
         
         return cell
         
@@ -108,14 +125,6 @@ extension netflixViewController : UITableViewDelegate, UITableViewDataSource {
         
         
     }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 5
-        
-    }
-    
-    
     
     
 }

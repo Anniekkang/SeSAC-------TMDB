@@ -17,13 +17,21 @@ class netflixAPIManager {
     
     private init(){}
 
-    var movieDic : [String : Int] = [:]
-    var movieList : [[String : Int]] = [[:]]
+    var keyArray : [String] = []
+    var valueArray : [Int] = []
+    var imagePath : [[String]] = [] //path들이 있는 배열
+    var movieID : [Int] = []
+    var movieTitle : [String] = []
     
-    func dictionaryRequest(){
+     
+    
+    
+    //key = title, value = id -> save
+    func arrayRequest(completionHandler: @escaping ([String]) -> (),completionHandler2: @escaping ([Int]) -> ()) {
         
+       
         let url = "https://api.themoviedb.org/3/trending/movie/week?api_key=\(APIKey.APIMovie)"
-        AF.request(url, method: .get).validate(statusCode: 200...500).responseData { [self] response in
+        AF.request(url, method: .get).validate(statusCode: 200...500).responseData { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -33,49 +41,69 @@ class netflixAPIManager {
                 //title값 key에 저장, id값 value에 저장
                 for item in json["results"].arrayValue {
 
-                    let key = item["title"].stringValue[IndexPath]
+                    let key = item["title"].stringValue
                     let value = item["id"].intValue
 
-                    movieDic.updateValue(value, forKey: key)
-                    movieList.append(movieDic)
-                    
+                    self.keyArray.append(key)
+                    self.valueArray.append(value)
+                   
                 }
                 
-                print(movieList)
+            
+                print(self.keyArray)
+                print(self.valueArray)
+                print(self.keyArray.count)
+            
+                completionHandler(self.keyArray)
+                completionHandler2(self.valueArray)
+               
                 
 //                let key = json["result"].arrayValue.map { $0["title"].stringValue}
 //                let value = json["result"].arrayValue.map { $0["id"].intValue}
                 
           
             case .failure(let error):
-                print("error")
+                print(error)
             }
 
     }
     
+}
     
-    func recommendRequest(query : Int, completionHandler : @escaping ([String]) -> () ){
-        print(#function)
-   
-        let url = "https://api.themoviedb.org/3/movie/\(query)/recommendations?api_key=\(APIKey.APIMovie)&language=en-US&page=1"
+    func recommendRequest(completionHandler: @escaping ([[String]]) -> (),completionHandler2: @escaping ([String])->()) {
+    
+        
+       
+        
+        arrayRequest { key in
+            self.movieTitle.append(contentsOf: key)
+        } completionHandler2: { value in
+            self.movieID.append(contentsOf: value)
+        }
+
+
+        let url = "https://api.themoviedb.org/3/movie/\(movieID)/recommendations?api_key=\(APIKey.APIMovie)&language=en-US&page=1"
      
-        AF.request(url, method: .get).validate(statusCode: 200...500).responseData { response in
+        AF.request(url, method: .get).validate(statusCode: 200...500).responseData { [self] response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-            
-                var stillArray : [String] = []
-                for list in json["episodes"].arrayValue {
-
-                    let value = list["still_path"].stringValue
-                    stillArray.append(value)
+                var Array : [String] = []
+                
+                for list in json["results"].arrayValue {
+                   
+                    //추천영화 이미지 경로
+                    let value = list["poster_path"].stringValue
+                    Array.append(value)
+                    
 
                 }
                 
-                let value = json["episodes"].arrayValue.map { $0["still_path"].stringValue }
+                imagePath.append(Array)
+                completionHandler(self.imagePath)
                 
                 
-                completionHandler(value)
+                
                 
             case .failure(let error):
                 print(error)
@@ -96,4 +124,4 @@ class netflixAPIManager {
     
 
     }
-}
+

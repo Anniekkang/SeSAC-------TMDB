@@ -29,7 +29,6 @@
 		9E321221289A4D44008D11FE /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 9E321220289A4D44008D11FE /* SwiftyJSON */; };
 		9E3F3E1928A4D344001DBF17 /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F3E1828A4D344001DBF17 /* ReusableProtocol.swift */; };
 		9E3F3E1B28A4D4CC001DBF17 /* netflixAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F3E1A28A4D4CC001DBF17 /* netflixAPIManager.swift */; };
-		9E439764289B96DE00B96507 /* ddd.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E439763289B96DE00B96507 /* ddd.storyboard */; };
 		9E985E6B28A230F2007140DB /* Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E985E6A28A230F2007140DB /* Screen.storyboard */; };
 		9E985E6D28A2312C007140DB /* netflixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E985E6C28A2312C007140DB /* netflixViewController.swift */; };
 		9E985E6F28A23386007140DB /* netflixTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E985E6E28A23386007140DB /* netflixTableViewCell.swift */; };
@@ -62,7 +61,6 @@
 		9E3212162899FABC008D11FE /* Example2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example2.swift; sourceTree = "<group>"; };
 		9E3F3E1828A4D344001DBF17 /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
 		9E3F3E1A28A4D4CC001DBF17 /* netflixAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netflixAPIManager.swift; sourceTree = "<group>"; };
-		9E439763289B96DE00B96507 /* ddd.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ddd.storyboard; sourceTree = "<group>"; };
 		9E985E6A28A230F2007140DB /* Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Screen.storyboard; sourceTree = "<group>"; };
 		9E985E6C28A2312C007140DB /* netflixViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netflixViewController.swift; sourceTree = "<group>"; };
 		9E985E6E28A23386007140DB /* netflixTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netflixTableViewCell.swift; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 				9E197EBA28A023AC007E5433 /* CollectionViewCell.xib */,
 				9E3211F62899F6BA008D11FE /* AppDelegate.swift */,
 				9E3211F82899F6BA008D11FE /* SceneDelegate.swift */,
-				9E439763289B96DE00B96507 /* ddd.storyboard */,
 				9E3211FF2899F6BC008D11FE /* Assets.xcassets */,
 				9E3212012899F6BC008D11FE /* LaunchScreen.storyboard */,
 				9E3212042899F6BC008D11FE /* Info.plist */,
@@ -249,7 +246,6 @@
 			files = (
 				9E197EBC28A023AC007E5433 /* CollectionViewCell.xib in Resources */,
 				9E32120B2899F7D3008D11FE /* .gitignore in Resources */,
-				9E439764289B96DE00B96507 /* ddd.storyboard in Resources */,
 				9E985E6B28A230F2007140DB /* Screen.storyboard in Resources */,
 				9E197ECE28A0313E007E5433 /* MovieCollectionViewCell.xib in Resources */,
 				9E985E7528A24965007140DB /* netflixCollectionViewCell.xib in Resources */,
