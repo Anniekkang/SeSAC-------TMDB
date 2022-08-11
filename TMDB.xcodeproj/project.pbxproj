@@ -27,6 +27,8 @@
 		9E3212172899FABC008D11FE /* Example2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3212162899FABC008D11FE /* Example2.swift */; };
 		9E32121E289A4D23008D11FE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9E32121D289A4D23008D11FE /* Alamofire */; };
 		9E321221289A4D44008D11FE /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 9E321220289A4D44008D11FE /* SwiftyJSON */; };
+		9E3F3E1928A4D344001DBF17 /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F3E1828A4D344001DBF17 /* ReusableProtocol.swift */; };
+		9E3F3E1B28A4D4CC001DBF17 /* netflixAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F3E1A28A4D4CC001DBF17 /* netflixAPIManager.swift */; };
 		9E439764289B96DE00B96507 /* ddd.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E439763289B96DE00B96507 /* ddd.storyboard */; };
 		9E985E6B28A230F2007140DB /* Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E985E6A28A230F2007140DB /* Screen.storyboard */; };
 		9E985E6D28A2312C007140DB /* netflixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E985E6C28A2312C007140DB /* netflixViewController.swift */; };
@@ -58,6 +60,8 @@
 		9E3212102899F9B5008D11FE /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		9E3212132899FAAA008D11FE /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		9E3212162899FABC008D11FE /* Example2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example2.swift; sourceTree = "<group>"; };
+		9E3F3E1828A4D344001DBF17 /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
+		9E3F3E1A28A4D4CC001DBF17 /* netflixAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netflixAPIManager.swift; sourceTree = "<group>"; };
 		9E439763289B96DE00B96507 /* ddd.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ddd.storyboard; sourceTree = "<group>"; };
 		9E985E6A28A230F2007140DB /* Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Screen.storyboard; sourceTree = "<group>"; };
 		9E985E6C28A2312C007140DB /* netflixViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netflixViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 			children = (
 				9E985E6928A230AA007140DB /* Netflix */,
 				9E32120A2899F7D3008D11FE /* .gitignore */,
+				9E3212122899FA60008D11FE /* Key */,
 				9E3211F52899F6BA008D11FE /* TMDB */,
 				9E3211F42899F6BA008D11FE /* Products */,
 			);
@@ -120,7 +125,6 @@
 			children = (
 				9E197EC628A03110007E5433 /* finalSearchApp */,
 				9E3212152899FAB0008D11FE /* Resource */,
-				9E3212122899FA60008D11FE /* Key */,
 				9E197EB928A023AC007E5433 /* CollectionViewCell.swift */,
 				9E197EBA28A023AC007E5433 /* CollectionViewCell.xib */,
 				9E3211F62899F6BA008D11FE /* AppDelegate.swift */,
@@ -161,6 +165,8 @@
 				9E985E7328A24965007140DB /* netflixCollectionViewCell.xib */,
 				9E985E7828A24C3E007140DB /* netflixUIView.swift */,
 				9E985E7A28A24CFF007140DB /* netflixUIView.xib */,
+				9E3F3E1828A4D344001DBF17 /* ReusableProtocol.swift */,
+				9E3F3E1A28A4D4CC001DBF17 /* netflixAPIManager.swift */,
 			);
 			path = Netflix;
 			sourceTree = "<group>";
@@ -269,8 +275,10 @@
 				9E3212142899FAAA008D11FE /* Example.swift in Sources */,
 				9E197ECD28A0313E007E5433 /* MovieCollectionViewCell.swift in Sources */,
 				9E197EBB28A023AC007E5433 /* CollectionViewCell.swift in Sources */,
+				9E3F3E1928A4D344001DBF17 /* ReusableProtocol.swift in Sources */,
 				9E197ED228A03939007E5433 /* MovieProtocol.swift in Sources */,
 				9E3211F72899F6BA008D11FE /* AppDelegate.swift in Sources */,
+				9E3F3E1B28A4D4CC001DBF17 /* netflixAPIManager.swift in Sources */,
 				9E3211F92899F6BA008D11FE /* SceneDelegate.swift in Sources */,
 				9E32120F2899F89C008D11FE /* APIKey.swift in Sources */,
 				9E985E6F28A23386007140DB /* netflixTableViewCell.swift in Sources */,

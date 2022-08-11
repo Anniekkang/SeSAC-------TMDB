@@ -41,7 +41,7 @@ class netflixTableViewCell: UITableViewCell {
     func collectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 100, height: 150)
+        layout.itemSize = CGSize(width: 120, height: 150)
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 5
         return layout

@@ -14,15 +14,13 @@ class netflixViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     
-    let labelList = ["아는 와이프와 비슷한 콘텐츠", "미스터 선샤인과 비슷한 콘텐츠","액션 SF","미국 TV 프로그램"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
     
-        
+        netflixAPIManager.shared.dictionaryRequest()
         
         
     }
@@ -89,7 +87,8 @@ extension netflixViewController : UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "netflixTableViewCell", for: indexPath) as? netflixTableViewCell else { return UITableViewCell() }
         
         
-        cell.titleLabel.text = labelList[indexPath.row]
+        
+     
         cell.collectionView.delegate = self
         cell.collectionView.dataSource = self
         cell.collectionView.backgroundColor = .yellow
@@ -112,7 +111,7 @@ extension netflixViewController : UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return labelList.count
+        return 5
         
     }
     
